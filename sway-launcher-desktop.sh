@@ -316,7 +316,7 @@ for PROVIDER_NAME in "${!PROVIDERS[@]}"; do
 done
 
 readarray -t COMMAND_STR <<<$(
-  ${FZF_COMMAND} --ansi +s -x -d '\034' --nth ..3 --with-nth 3 \
+  ${FZF_COMMAND} --ansi -x -d '\034' --nth ..3 --with-nth 3 \
     --print-query \
     --preview "$0 describe {2} {1}" \
     --preview-window="${PREVIEW_WINDOW}" \
