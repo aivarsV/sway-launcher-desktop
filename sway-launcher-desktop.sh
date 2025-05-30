@@ -361,7 +361,7 @@ readarray -d $'\034' -t PARAMS <<<${COMMAND_STR}
 readarray -d ${DEL} -t PROVIDER_ARGS <<<${PROVIDERS[${PARAMS[1]}]}
 # Substitute {1}, {2} etc with the correct values
 COMMAND=${PROVIDER_ARGS[2]//\{1\}/${PARAMS[0]}}
-COMMAND=${COMMAND//\{2\}/${PARAMS[3]}}
+COMMAND=${COMMAND//\{2\}/${PARAMS[3]%%[[:space:]]}}
 COMMAND=${COMMAND%%[[:space:]]}
 
 if [ -t 1 ]; then
